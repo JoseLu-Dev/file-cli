@@ -19,6 +19,6 @@ export abstract class Command {
     }
 
     protected async _write(files: Array<FileWrapper>): Promise<void> {
-        await this._writeComputedFilesUseCase.write(files)
+        //await this._writeComputedFilesUseCase.write(files)
     }
 }

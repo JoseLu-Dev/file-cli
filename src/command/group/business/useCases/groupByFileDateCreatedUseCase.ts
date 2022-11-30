@@ -7,7 +7,7 @@ export class GroupByFileDateCreatedUseCase {
 
     constructor() { }
 
-    group(files: Array<FileWrapper>): void {
+    group(files: Array<FileWrapper>, format: string = 'dd-mm-yyyy'): void {
         files.forEach(file => {
             this._moveFileToItsFolder(file)
         })

@@ -1,4 +1,4 @@
-import { Command } from '@commander-js/extra-typings'
+import { Command, Option } from '@commander-js/extra-typings'
 import { Service } from 'typedi'
 
 import { GroupFiles } from './group/business/groupFiles'
@@ -20,8 +20,8 @@ export class CommandMediator {
         program
             .command('group')
             .description('Group files depending on flags')
-            .option('-d, --date-created', 'By date created')
-            .option('-e, --extension', 'By extension type')
+            .option('-d, --date-created [format]', 'By date created')
+            .addOption(new Option('-e, --extension [option]', 'By extension type').choices(['type', 'subtype', 'mimetype']))
             .action((options: GroupOptions) => {
                 this._groupFiles.execute({path: executionPath, specificOptions: options})
             })
